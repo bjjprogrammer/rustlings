@@ -7,6 +7,11 @@ struct Point {
 #[derive(Debug)]
 enum Message {
     // TODO: Define the different variants used below.
+    Resize(u32, u32),
+    Move(i32, i32),
+    Echo(String),
+    ChangeColor(u8, u8, u8),
+    Quit,
 }
 
 impl Message {
@@ -17,12 +22,9 @@ impl Message {
 
 fn main() {
     let messages = [
-        Message::Resize {
-            width: 10,
-            height: 30,
-        },
-        Message::Move(Point { x: 10, y: 15 }),
-        Message::Echo(String::from("hello world")),
+        Message::Resize(10, 30),
+        Message::Move(10, 15),
+        Message::Echo(String::from("Hello, world!")),
         Message::ChangeColor(200, 255, 255),
         Message::Quit,
     ];
